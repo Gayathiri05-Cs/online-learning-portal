@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn new skills with LearnSpace Online Learning Portal.">
+  <title>LearnSpace — Online Learning Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" onclick="showPage('home');return false"><span class="brand-icon">L</span> LearnSpace</a>
+  <nav><button class="nav-link active" data-page="home" onclick="showPage('home')">Explore</button><button class="nav-link" data-page="dashboard" onclick="showPage('dashboard')">My learning</button></nav>
+  <div class="account-area" id="accountArea"><button class="btn btn-outline" onclick="openAuth('login')">Log in</button><button class="btn btn-primary" onclick="openAuth('register')">Sign up</button></div>
+</header>
+<main>
+<section id="homePage">
+  <div class="hero"><div class="hero-copy"><span class="eyebrow"><span class="pulse"></span> YOUR NEXT CHAPTER STARTS HERE</span><h1>Small steps.<br><span>Big possibilities.</span></h1><p>Build practical skills, learn at your own pace, and turn curiosity into confidence.</p><button class="btn btn-light" onclick="document.getElementById('courseGrid').scrollIntoView({behavior:'smooth'})">Explore courses <span>↘</span></button><div class="hero-stats"><div><strong>6</strong><small>Curated courses</small></div><div><strong>24</strong><small>Lessons to explore</small></div><div><strong>100%</strong><small>Your own pace</small></div></div></div><div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card card-main"><div class="art-top"><span class="mini-dot"></span><span class="mini-dot"></span><span class="mini-dot"></span><span class="art-label">YOUR LEARNING SPACE</span></div><div class="art-symbol">✳</div><div class="art-title">Keep growing.</div><div class="art-subtitle">One lesson at a time.</div><div class="art-progress"><span></span></div><div class="art-foot"><span>YOUR JOURNEY</span><b>IN PROGRESS ↗</b></div></div><div class="float-chip chip-one">✦ Learn something new</div><div class="float-chip chip-two">✓ Progress that lasts</div></div></div>
+  <section class="catalog section-wrap"><div class="section-heading"><div><span class="eyebrow dark-eyebrow">THE COURSE LIBRARY</span><h2>Find your next <span>skill.</span></h2><p>Thoughtfully designed courses to help you move forward.</p></div><div class="course-count" id="courseCount">6 courses</div></div>
+  <div class="filters"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search courses, topics, instructors..." aria-label="Search courses"></label><select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select><select id="levelFilter" aria-label="Filter by level"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option></select></div>
+  <div id="courseGrid" class="course-grid"><div class="loading">Loading your courses...</div></div>
+  </section>
+  <section class="bottom-cta"><div><span class="eyebrow">YOUR FUTURE IS A WORK IN PROGRESS</span><h2>Curiosity looks good on you.</h2><p>Create a free account and keep your learning journey in one place.</p></div><button class="btn btn-light" onclick="openAuth('register')">Start learning <span>↗</span></button></section>
+</section>
+<section id="dashboardPage" class="section-wrap hidden"><div class="page-title"><span class="eyebrow dark-eyebrow">YOUR PERSONAL SPACE</span><h1>My learning<span>.</span></h1><p>Every completed lesson is progress worth celebrating.</p></div><div id="dashboardContent"></div></section>
+<section id="coursePage" class="section-wrap hidden"><button class="back-link" onclick="showPage('home')">← Back to courses</button><div id="courseDetail"></div></section>
+<section id="lessonPage" class="section-wrap hidden"><button class="back-link" onclick="showPage('dashboard')">← Back to my learning</button><div id="lessonDetail"></div></section>
+</main>
+<footer><a class="brand footer-brand" href="#" onclick="showPage('home');return false"><span class="brand-icon">L</span> LearnSpace</a><p>Made for curious minds. Keep learning, keep growing.</p><span>© 2026 LearnSpace Learning Portal</span></footer>
+<div class="modal-backdrop hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="auth-modal"><button class="modal-close" aria-label="Close" onclick="closeAuth()">×</button><div class="modal-mark">L</div><span class="eyebrow dark-eyebrow">YOUR NEXT CHAPTER</span><h2 id="authTitle">Welcome back.</h2><p id="authSubtitle">Log in to pick up where you left off.</p><div id="authError" class="form-message hidden"></div><form id="authForm"><div id="nameField" class="field hidden"><label for="authName">Full name</label><input id="authName" autocomplete="name" placeholder="Your name"></div><div class="field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div><div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required></div><button class="btn btn-primary submit-btn" id="authSubmit" type="submit">Log in</button></form><p class="switch-auth" id="switchAuth">New to LearnSpace? <button onclick="openAuth('register')">Create an account</button></p></div></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>

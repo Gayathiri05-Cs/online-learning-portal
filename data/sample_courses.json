@@ -1,0 +1,8 @@
+[
+  {"title":"Python for Beginners","instructor":"Mr. Kumar","duration":"4 weeks","category":"Programming","level":"Beginner"},
+  {"title":"Web Development Basics","instructor":"Ms. Ananya","duration":"5 weeks","category":"Web Development","level":"Beginner"},
+  {"title":"SQL and Databases","instructor":"Dr. Ravi","duration":"3 weeks","category":"Database","level":"Intermediate"},
+  {"title":"Introduction to Artificial Intelligence","instructor":"Ms. Priya","duration":"4 weeks","category":"AI","level":"Beginner"},
+  {"title":"Git and GitHub Essentials","instructor":"Mr. Arun","duration":"2 weeks","category":"Tools","level":"Beginner"},
+  {"title":"Data Structures Fundamentals","instructor":"Dr. Meera","duration":"6 weeks","category":"Programming","level":"Intermediate"}
+]
